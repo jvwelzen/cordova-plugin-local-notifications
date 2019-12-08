@@ -144,19 +144,10 @@ public final class Builder {
                 .setTimeoutAfter(options.getTimeout())
                 .setLights(options.getLedColor(), options.getLedOn(), options.getLedOff());
 
-        //if (sound != Uri.EMPTY && !isUpdate()) {
-            //builder.setSound(sound);
-        //}
-        // Replace with -->
-        try {
-
-        Ringtone r = RingtoneManager.getRingtone(context.getApplicationContext(), sound);
-        r.play();
-        } catch (Exception e) {
-        e.printStackTrace();
+        if (sound != Uri.EMPTY && !isUpdate()) {
+            builder.setSound(sound);
         }
-        
-        // End Replace -->
+
 
         if (options.isWithProgressBar()) {
             builder.setProgress(
